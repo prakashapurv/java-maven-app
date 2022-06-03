@@ -34,7 +34,7 @@ pipeline {
          stage ("Deploy Image") {
              steps{
                  script{
-                     def dockerCmd = 'docker run -p 3000:3000 -d prakashapurv/myapp:1.1'
+                     def dockerCmd = 'docker run -p 3080:3080 -d prakashapurv/react-app:1.0'
                      sshagent(['ec2-server-key']) {
                          sh "ssh -o StrictHostKeyChecking=no ec2-user@54.234.65.58 ${dockerCmd}"
 
